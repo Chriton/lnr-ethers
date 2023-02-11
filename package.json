@@ -6,7 +6,8 @@
   "scripts": {
     "production": "WEBPACK_ENV=build webpack",
     "development": "WEBPACK_ENV=dev webpack --progress --colors --watch",
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "generate-docs": "jsdoc -c jsdoc.json"
   },
   "files": [
     "dist/*"
@@ -24,6 +25,8 @@
     "npm-packlist": "^7.0.4"
   },
   "devDependencies": {
+    "clean-jsdoc-theme": "^4.2.6",
+    "jsdoc": "^4.0.0",
     "webpack-cli": "^5.0.1"
   }
 }
