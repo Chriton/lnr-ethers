@@ -4,7 +4,19 @@
 </p>
 This package simplifies interacting with the Linagee Name Registrar contract, wrapper and resolver.
 
-To generate the library, run "npx webpack"
+## Generating the Library
+To generate the library, run the following command in the root directory of the project:
+```
+npx webpack
+```
+
+## Generating the Documentation
+To generate the documentation, run the following command in the root directory of the project:
+```
+npm run generate-docs
+```
+The documentation will be generated in the docs/ folder. To view the documentation, open the docs/index.html file in your browser
+
 
 ## Getting Started
 ### Note: for domains to be used with the resolver, they must first be unwrapped
@@ -22,7 +34,6 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 await provider.send("eth_requestAccounts", []);
 const signer = provider.getSigner();
 let lnr = new LNR(ethers, signer);
-
 ```
 
 
