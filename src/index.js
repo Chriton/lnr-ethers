@@ -186,7 +186,7 @@ class LNR {
    * Resolves the primary address of the domain, if there is no primary, returns null
    *
    * @param _name The domain to check
-   * @returns
+   * @returns {string} The primary address of the domain or null if there is no primary set
    */
   async resolveName(_name) {
         let checkIsValid = this.isValidDomain(_name);
@@ -208,7 +208,7 @@ class LNR {
    * Finds the primary domain of an address, if the primary is not set, returns null
    *
    * @param _address The address to check
-   * @returns primary domain
+   * @returns {string} The primary domain of the address or null if there is no primary set
    */
   async lookupAddress(_address) {
         const that = this;
@@ -226,7 +226,7 @@ class LNR {
    * Note that the signer address must be the owner or the controller of the domain
    *
    * @param _name The domain to set as primary
-   * @returns
+   * @returns TODO
    */
   async setPrimary(_name) {
         if (this.verifyIsNameOwner(_name, (await this.signer.getAddress()))) {
@@ -243,7 +243,7 @@ class LNR {
   /**
    * Unsets the primary domain
    *
-   * @returns
+   * @returns TODO
    */
   async unsetPrimary() {
         return this.resolverContract.unsetPrimary().then(function(result) {
@@ -258,7 +258,7 @@ class LNR {
    *
    * @param _name The domain to set the controller for
    * @param _address The address to set as the controller
-   * @returns
+   * @returns TODO
    */
   async setController(_name, _address) {
         let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -277,7 +277,7 @@ class LNR {
    * Unsets the controller for a domain
    *
    * @param _name The domain for which to unset the controller
-   * @returns
+   * @returns TODO
    */
   async unsetController(_name) {
         let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -299,7 +299,7 @@ class LNR {
    * Creates a new wrapper
    *
    * @param _name The domain to create the wrapper for
-   * @returns
+   * @returns TODO
    */
     async createWrapper(_name) {
       let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -318,7 +318,7 @@ class LNR {
    * Wraps an existing domain
    *
    * @param _name The domain to wrap
-   * @returns
+   * @returns TODO
    */
     async wrap(_name) {
       let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -337,7 +337,7 @@ class LNR {
    * Waits for the wrapper to be created
    *
    * @param _name The domain for which to wait the wrapper to be created
-   * @returns
+   * @returns TODO
    */
     async waitForWrap(_name) {
       let nameBytes = this.domainToBytes32(_name);
@@ -355,7 +355,7 @@ class LNR {
    * Unwraps a domain
    *
    * @param {string} _name The domain to unwrap
-   * @returns
+   * @returns TODO
    */
     async unwrap(_name) {
       let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -381,7 +381,7 @@ class LNR {
    * @param {string} _from The address from which to transfer the domain
    * @param {string} _to The address to which to transfer the domain
    * @param {string} _name The domain to transfer
-   * @returns
+   * @returns TODO
    */
     async safeTransferFrom(_from, _to, _name) {
       let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -428,7 +428,7 @@ class LNR {
    *
    * @param _to The address to which to transfer the domain
    * @param _name The domain to transfer
-   * @returns
+   * @returns TODO
    */
     async transfer(_to, _name) {
       let isUnwrappedOwner = await this.isUnwrappedOwner(_name);
@@ -447,7 +447,7 @@ class LNR {
    * Reserves the specified domain
    *
    * @param _name The domain to reserve
-   * @returns
+   * @returns TODO
    */
     async reserve(_name) {
       let owner = await this.owner(_name);
