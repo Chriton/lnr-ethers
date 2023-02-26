@@ -1,14 +1,18 @@
 name: Generate GitHub Pages Documentation
 
 on:
-
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push on the master branch
   push:
-    branches:
-      - master
+    branches: [ "master" ]
+  # Triggers the workflow on pull requests into master branch
+  pull_request:
+    branches: [ "master" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate-documentation:
@@ -16,21 +20,22 @@ jobs:
     steps:
 
       # Checkout the repository to the GitHub Actions runner
-      - name: Checkout code
+      - name: Checkout 🛎️
         uses: actions/checkout@v3.3.0
 
       # Generate the documentation
-      - name: Build
+      - name: Build 🔧
         uses: andstor/jsdoc-action@v1.2.1
         with:
           source_dir: ./src
           output_dir: ./docs
-          config_file: ./jsdoc.json
-          template: clean-jsdoc-theme
+          config_file: jsdoc.json
+          template: ink-docstrap
+          template_dir: template
           front_page: README.md
 
-      # Deploy the documentation to GitHub Pages
-      - name: Deploy
+      # Deploys the content of ./docs into gh-pages branch (default option)
+      - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -7,7 +7,8 @@
   },
   "templates": {
     "cleverLinks": true,
-    "monospaceLinks": true
+    "monospaceLinks": true,
+    "theme": "cerulean"
   },
   "opts": {
     "template": "node_modules/clean-jsdoc-theme",
